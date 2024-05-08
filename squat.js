@@ -197,13 +197,18 @@ function draw() {
 
         }
         //grab toilet paper
+        let paperTorn = false;
         let paperPos = createVector(827, 355);
         if (paperPos.dist(wristL) <= Thres || paperPos.dist(wristR) <= Thres) {
-            paperS.play();
+            
             // load model paper sheet at  wrist pos;
             paper = true;
 
+
             paperConsumption += 1;
+     
+             paperS.play(); 
+          
 
         }
         if (paper) {
@@ -252,6 +257,7 @@ function draw() {
         // text("Your right squat angle " + abs(int(squatAngleR * 180 / PI)) + "°", 0, 20);
 
 
+
         console.log(mouseX, mouseY);
         push();
         fill(255, 0, 0);
@@ -260,6 +266,10 @@ function draw() {
         circle(827, 355, 15);
         pop();
 
+        textFont('Courier New');
+        textStyle(BOLD);
+        stroke(250);
+        strokeWeight(3);
         textSize(100);
         text("🫱", wristR.x, wristR.y);
         text("🫲", wristL.x, wristL.y);
@@ -267,8 +277,8 @@ function draw() {
         text("🦴", leftKneeX, leftKneeY);
         text("🍑", assPos.x, assPos.y);
 
-        textSize(30);
 
+        textSize(30);
         text("Instruction of How to Use a Virtual Toilet", 500, 40);
 
         text("🍑 @ 🚽 -> 💩", 500, 90);
